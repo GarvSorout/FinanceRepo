@@ -9,9 +9,7 @@ st.set_page_config(page_title="AI Journal Auditor", layout="wide")
 # Load trained model
 @st.cache_resource
 def load_model():
-    return joblib.load(
-        "/Users/garvsorout/FinanceRepo/ai-journal-auditor/model/audit_model.pkl"
-    )
+    return joblib.load("model/audit_model.pkl")
 
 
 pipeline = load_model()
