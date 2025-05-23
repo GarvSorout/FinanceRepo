@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import joblib
 from datetime import datetime
+import os
 
 st.set_page_config(page_title="AI Journal Auditor", layout="wide")
 
@@ -9,7 +10,8 @@ st.set_page_config(page_title="AI Journal Auditor", layout="wide")
 # Load trained model
 @st.cache_resource
 def load_model():
-    return joblib.load("../model/audit_model.pkl")
+    model_path = os.path.join(os.path.dirname(__file__), "../model/audit_model.pkl")
+    return joblib.load(model_path)
 
 
 pipeline = load_model()
